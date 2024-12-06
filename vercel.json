@@ -2,8 +2,12 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
+      "src": "server/server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "build/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -12,14 +16,15 @@
       "dest": "/build/public/$1"
     },
     {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/server/server.js"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/server/server.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production",
-    "NODE_SERVER_HOSTNAME": "0.0.0.0",
-    "PUBLIC_STATIC_ASSET_PATH": "/assets/",
-    "API_URL": "/api"
-  }
+  ]
 } 

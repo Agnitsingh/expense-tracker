@@ -4,6 +4,7 @@
     "scripts": {
         "start": "catalyst serve",
         "build": "catalyst build",
+        "vercel-build": "node vercel-build.js",
         "serve": "catalyst serve",
         "lint": "eslint .",
         "devBuild": "catalyst devBuild",
