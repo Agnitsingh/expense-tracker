@@ -1,17 +1,17 @@
 {
     "MONGODB_URI": "mongodb+srv://agnitsingh:agnit8210@cluster0.zopxwec.mongodb.net/expenseTracker?retryWrites=true&w=majority&appName=Cluster0",
-    "NODE_ENV": "development",
+    "NODE_ENV": "production",
     "NODE_SERVER_PORT": 3005,
-    "NODE_SERVER_HOSTNAME": "localhost",
-    "WEBPACK_DEV_SERVER_HOSTNAME": "localhost",
+    "NODE_SERVER_HOSTNAME": "0.0.0.0",
+    "WEBPACK_DEV_SERVER_HOSTNAME": "0.0.0.0",
     "WEBPACK_DEV_SERVER_PORT": 3007,
     "BUILD_OUTPUT_PATH": "build",
     "PUBLIC_STATIC_ASSET_PATH": "/assets/",
-    "PUBLIC_STATIC_ASSET_URL": "http://localhost:3007",
+    "PUBLIC_STATIC_ASSET_URL": "",
     "CLIENT_ENV_VARIABLES": ["NODE_ENV", "API_URL", "MONGODB_URI"],
     "API_URL": "/api",
     "ANALYZE_BUNDLE": false,
-    "ENABLE_DEBUG_LOGS": true,
+    "ENABLE_DEBUG_LOGS": false,
     "ENABLE_CONSOLE_LOGGING": true,
     "ENABLE_FILE_LOGGING": false
 }

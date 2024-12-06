@@ -2,7 +2,7 @@
     "name": "expense-tracker",
     "version": "1.0.0",
     "scripts": {
-        "start": "catalyst start",
+        "start": "catalyst serve",
         "build": "catalyst build",
         "serve": "catalyst serve",
         "lint": "eslint .",
