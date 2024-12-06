@@ -1,0 +1,192 @@
+.authContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.authContainer::before {
+    content: '';
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0) 70%);
+    top: -400px;
+    right: -400px;
+    z-index: 0;
+}
+
+.authContainer::after {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+    bottom: -300px;
+    left: -300px;
+    z-index: 0;
+}
+
+.authCard {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.authTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.authSubtitle {
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.formGroup input {
+    padding: 0.875rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.2s;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.formGroup input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    background: white;
+}
+
+.primaryButton {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    padding: 0.875rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    height: 48px;
+}
+
+.primaryButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.authSwitch {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #64748b;
+    font-size: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.linkButton {
+    background: none;
+    border: none;
+    color: #3b82f6;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.linkButton:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.errorMessage {
+    background: rgba(254, 226, 226, 0.9);
+    color: #dc2626;
+    padding: 0.875rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    backdrop-filter: blur(4px);
+}
+
+@media (max-width: 768px) {
+    .authContainer {
+        padding: 1rem;
+        align-items: center; /* Center vertically on mobile */
+    }
+
+    .authCard {
+        padding: 2rem;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .authTitle {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .authContainer {
+        padding: 0.75rem;
+    }
+
+    .authCard {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+
+    .authTitle {
+        font-size: 2rem;
+    }
+
+    .formGroup input {
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+} 

@@ -1,0 +1,569 @@
+body {
+    background: #f8fafc;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 24px;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.headerTitles {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.title {
+    font-size: 3.5rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.5;
+    margin-bottom: -1rem;
+}
+
+.headerActions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    
+}
+
+.addButton,
+.analyticsButton,
+.logoutButton {
+    flex: 1;
+    padding: 1.25rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 160px;
+    border: none;
+    color: white;
+    min-height: 56px;
+}
+
+.addButton {
+    background: #10b981;
+}
+
+.addButton:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.2);
+}
+
+.analyticsButton {
+    background: #6366f1;
+}
+
+.analyticsButton:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.2);
+}
+
+.logoutButton {
+    background: #f43f5e;
+}
+
+.logoutButton:hover {
+    background: #e11d48;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(244, 63, 94, 0.2);
+}
+
+.summary {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.summary h2 {
+    font-size: 2rem;
+    margin: 0;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.filterSelect {
+    padding: 12px 24px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #1e293b;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 200px;
+}
+
+.filterSelect:hover {
+    border-color: #3b82f6;
+}
+
+.transactionsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.transaction {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    gap: 1rem;
+}
+
+.transaction:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.transactionInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.transactionDescription {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    display: block;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+}
+
+.transactionMeta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.transactionCategory {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.transactionDate {
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.transactionActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.transactionAmount {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-right: 1rem;
+    white-space: nowrap;
+}
+
+.actionButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    color: #64748b;
+}
+
+.actionButton:hover {
+    color: #1e293b;
+    transform: translateY(-2px);
+}
+
+.editButton:hover {
+    color: #3b82f6;
+}
+
+.deleteButton:hover {
+    color: #ef4444;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    padding: 1rem;
+}
+
+.modalContent {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.modalContent h3 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.75rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.modalContent form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.modalContent input,
+.modalContent select {
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    width: calc(100% - 2rem);
+    box-sizing: border-box;
+}
+
+.modalContent input:focus,
+.modalContent select:focus {
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.modalActions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.modalActions button {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 48px;
+}
+
+.saveButton {
+    background: #3b82f6;
+    color: white;
+    border: none;
+}
+
+.saveButton:hover {
+    background: #2563eb;
+}
+
+.deleteButton {
+    background: #ef4444;
+    color: white;
+    border: none;
+}
+
+.deleteButton:hover {
+    background: #dc2626;
+}
+
+.cancelButton {
+    background: #f1f5f9;
+    color: #475569;
+    border: none;
+}
+
+.cancelButton:hover {
+    background: #e2e8f0;
+}
+
+.noTransactions {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin: 2rem 0;
+}
+
+.noTransactions p {
+    font-size: 1.25rem;
+    color: #64748b;
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.exportSection {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: auto;
+    margin-bottom: 2rem;
+}
+
+.exportNote {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+}
+
+.exportButton {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.exportButton:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1e293b;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+}
+
+.footer span {
+    color: #ef4444;
+    display: inline-block;
+    transform: scale(1.2);
+    margin: 0 0.5rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.footer::before,
+.footer::after {
+    content: '•';
+    color: #3b82f6;
+    margin: 0 0.75rem;
+    font-size: 1.2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1.2); }
+    50% { transform: scale(1.4); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+
+    .header {
+        padding: 2rem 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .headerTitles {
+        margin-bottom: 1.5rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+        padding: 0 1rem;
+    }
+
+    .headerActions {
+        margin-top: -0.75rem;
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .addButton,
+    .analyticsButton,
+    .logoutButton {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .summary {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .summary h2 {
+        font-size: 1.75rem;
+    }
+
+    .filterSelect {
+        width: 100%;
+    }
+
+    .transaction {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.25rem;
+    }
+
+    .transactionInfo {
+        width: 100%;
+    }
+
+    .transactionMeta {
+        margin-top: 0.5rem;
+    }
+
+    .transactionActions {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    .transactionAmount {
+        font-size: 1.5rem;
+    }
+
+    .modalContent {
+        padding: 1.5rem;
+        margin: 1rem;
+        max-height: calc(100vh - 2rem);
+        overflow-y: auto;
+    }
+
+    .modalContent input,
+    .modalContent select {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .modalActions button {
+        padding: 0.875rem;
+    }
+
+    .exportSection {
+        padding: 1.5rem;
+    }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .transactionDescription {
+        font-size: 1.1rem;
+    }
+} 
