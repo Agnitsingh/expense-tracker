@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "build/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/build/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/build/server.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "NODE_SERVER_HOSTNAME": "0.0.0.0",
+    "PUBLIC_STATIC_ASSET_PATH": "/assets/",
+    "API_URL": "/api"
+  }
+} 
