@@ -6,7 +6,6 @@ import Login from "@containers/Auth/Login"
 import Signup from "@containers/Auth/Signup"
 import Analytics from "@containers/Analytics/Analytics"
 
-// Helper functions for analytics data
 const calculateCategoryData = (expenses) => {
     const categoryTotals = expenses.reduce((acc, expense) => {
         const category = expense.category.charAt(0).toUpperCase() + expense.category.slice(1);
@@ -42,7 +41,7 @@ const calculateMonthlyData = (expenses) => {
         });
 };
 
-// Protected Route Wrapper
+
 const ProtectedRoute = ({ component: Component, routeProps }) => {
     if (typeof window !== 'undefined') {
         const currentUser = localStorage.getItem('currentUser');
@@ -148,7 +147,7 @@ const routes = [
     }
 ];
 
-// Wrap the routes with RouterDataProvider
+
 export const AppRoutes = () => (
     <RouterDataProvider
         routes={routes}
@@ -156,7 +155,7 @@ export const AppRoutes = () => (
         fetcherArgs={{}}
         config={{}}
     >
-        {/* Your components */}
+        
     </RouterDataProvider>
 );
 
