@@ -452,7 +452,7 @@ body {
     50% { transform: scale(1.4); }
 }
 
-/* Mobile Responsiveness */
+
 @media (max-width: 768px) {
     .container {
         padding: 16px;
@@ -553,7 +553,7 @@ body {
     }
 }
 
-/* Small phones */
+
 @media (max-width: 380px) {
     .title {
         font-size: 2rem;
