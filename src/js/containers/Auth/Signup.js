@@ -18,14 +18,14 @@ const Signup = () => {
             return false;
         }
 
-        // Email validation
+        
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(formData.email)) {
             setError('Please enter a valid email address');
             return false;
         }
 
-        // Password validation
+        
         if (formData.password.length < 6) {
             setError('Password must be at least 6 characters long');
             return false;
@@ -40,7 +40,7 @@ const Signup = () => {
             ...prev,
             [name]: value
         }));
-        setError(''); // Clear error when user types
+        setError(''); 
     };
 
     const handleSubmit = async (e) => {
@@ -66,7 +66,7 @@ const Signup = () => {
                 throw new Error(data.message || 'Registration failed');
             }
 
-            // Show success message
+            
             setError('');
             navigate('/login');
         } catch (error) {
