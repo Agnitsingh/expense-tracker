@@ -12,14 +12,14 @@ const Login = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const validateForm = () => {
-        // Email validation
+       
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(formData.email)) {
             setError('Please enter a valid email address');
             return false;
         }
 
-        // Password validation
+        
         if (formData.password.length < 6) {
             setError('Password must be at least 6 characters long');
             return false;
@@ -34,7 +34,7 @@ const Login = () => {
             ...prev,
             [name]: value
         }));
-        setError(''); // Clear error when user types
+        setError(''); 
     };
 
     const handleSubmit = async (e) => {
@@ -60,10 +60,10 @@ const Login = () => {
                 throw new Error(data.message || 'Login failed');
             }
 
-            // Set current user in localStorage
+           
             localStorage.setItem('currentUser', JSON.stringify(data.user));
             
-            // Show success message
+            
             setError('');
             navigate('/');
         } catch (error) {
