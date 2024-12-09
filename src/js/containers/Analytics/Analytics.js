@@ -13,7 +13,6 @@ import {
 import { Pie, Bar } from 'react-chartjs-2';
 import "./styles.css"
 
-// Register ChartJS components
 ChartJS.register(
     ArcElement,
     Tooltip,
@@ -32,7 +31,7 @@ const Analytics = () => {
     React.useEffect(() => {
         const fetchExpenses = async () => {
             try {
-                // Only proceed if we're on the client side
+
                 if (typeof window === 'undefined') return;
 
                 const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
@@ -61,7 +60,7 @@ const Analytics = () => {
         fetchExpenses();
     }, [navigate]);
 
-    // Calculate category data
+    
     const categoryData = React.useMemo(() => {
         const totals = expenses.reduce((acc, expense) => {
             const category = expense.category.charAt(0).toUpperCase() + expense.category.slice(1);
@@ -75,7 +74,7 @@ const Analytics = () => {
         })).sort((a, b) => b.total - a.total);
     }, [expenses]);
 
-    // Calculate monthly data
+    
     const monthlyData = React.useMemo(() => {
         const totals = expenses.reduce((acc, expense) => {
             const date = new Date(expense.timestamp);
@@ -103,12 +102,12 @@ const Analytics = () => {
         datasets: [{
             data: categoryData.map(item => item.total),
             backgroundColor: [
-                '#4F46E5', // Indigo
-                '#10B981', // Emerald
-                '#F59E0B', // Amber
-                '#EF4444', // Red
-                '#8B5CF6', // Purple
-                '#6366F1'  // Blue
+                '#4F46E5', 
+                '#10B981', 
+                '#F59E0B', 
+                '#EF4444', 
+                '#8B5CF6', 
+                '#6366F1'  
             ],
             borderWidth: 1
         }]
@@ -167,7 +166,7 @@ const Analytics = () => {
         }
     };
 
-    // Show loading state
+    
     if (loading) {
         return (
             <div className="container">
@@ -186,7 +185,7 @@ const Analytics = () => {
         );
     }
 
-    // Show no data state
+    
     if (!expenses.length) {
         return (
             <div className="container">
