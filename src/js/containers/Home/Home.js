@@ -1,11 +1,11 @@
-import React from "react"
+import React, { useState, useEffect, useMemo } from "react"
 import { useNavigate, useCurrentRouteData } from "@tata1mg/router"
 import "./styles.css"
 
 const Home = () => {
     const navigate = useNavigate();
     const { data, refetch } = useCurrentRouteData();
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
         expenses: [],
         totalAmount: 0,
         selectedCategory: 'all',
@@ -15,17 +15,16 @@ const Home = () => {
         showPrintView: false
     });
 
-    const [userData, setUserData] = React.useState({ name: 'there' });
+    const [userData, setUserData] = useState({ name: 'there' });
 
-    React.useEffect(() => {
-        // Only access localStorage in client-side
+    useEffect(() => {
         if (typeof window !== 'undefined') {
             const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
             setUserData(currentUser);
         }
     }, []);
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (data) {
             console.log('Received data in Home:', data);
             setState(prev => ({
@@ -44,7 +43,7 @@ const Home = () => {
         }, 100);
     };
 
-    // Function to manually fetch expenses
+   
     const fetchExpenses = async () => {
         try {
             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -73,8 +72,8 @@ const Home = () => {
         }
     };
 
-    // Call fetchExpenses when component mounts
-    React.useEffect(() => {
+   
+    useEffect(() => {
         fetchExpenses();
     }, []);
 
@@ -130,7 +129,6 @@ const Home = () => {
                 throw new Error('Failed to delete expense');
             }
 
-            // Fetch updated expenses
             await fetchExpenses();
             setState(prev => ({
                 ...prev,
@@ -172,7 +170,6 @@ const Home = () => {
                 throw new Error('Failed to update expense');
             }
 
-            // Fetch updated expenses
             await fetchExpenses();
             setState(prev => ({
                 ...prev,
@@ -184,7 +181,7 @@ const Home = () => {
         }
     };
 
-    const filteredExpenses = React.useMemo(() => {
+    const filteredExpenses = useMemo(() => {
         console.log('Current expenses:', state.expenses);
         return state.selectedCategory === 'all' 
             ? state.expenses 
@@ -305,7 +302,7 @@ const Home = () => {
                 </>
             )}
             
-            {/* Delete Confirmation Modal */}
+            
             {state.showDeleteConfirm && (
                 <div className="modal">
                     <div className="modalContent">
@@ -323,7 +320,7 @@ const Home = () => {
                 </div>
             )}
 
-            {/* Edit Modal */}
+           
             {state.editingExpense && (
                 <div className="modal">
                     <div className="modalContent">
@@ -396,3 +393,4 @@ const Home = () => {
 };
 
 export default Home;
+
