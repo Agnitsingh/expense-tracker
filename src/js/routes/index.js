@@ -1,11 +1,15 @@
 import React from "react"
 import { RouterDataProvider } from '@tata1mg/router'
+import loadable from "@loadable/component"
 import Home from "@containers/Home/Home"
 import AddExpense from "@containers/AddExpense/AddExpense"
 import Login from "@containers/Auth/Login"
 import Signup from "@containers/Auth/Signup"
-import Analytics from "@containers/Analytics/Analytics"
 import configureStore from "@store"
+
+const Analytics = loadable(() => import("@containers/Analytics/Analytics"), {
+    fallback: <div className="loading">Loading analytics dashboard...</div>
+})
 
 const routes = [
     {
@@ -45,6 +49,57 @@ export const AppRoutes = () => {
 };
 
 export default routes;
+
+
+
+
+// import React from "react"
+// import { RouterDataProvider } from '@tata1mg/router'
+// import Home from "@containers/Home/Home"
+// import AddExpense from "@containers/AddExpense/AddExpense"
+// import Login from "@containers/Auth/Login"
+// import Signup from "@containers/Auth/Signup"
+// import Analytics from "@containers/Analytics/Analytics"
+// import configureStore from "@store"
+
+// const routes = [
+//     {
+//         path: "/login",
+//         component: Login
+//     },
+//     {
+//         path: "/signup",
+//         component: Signup
+//     },
+//     {
+//         path: "/",
+//         component: Home
+//     },
+//     {
+//         path: "/add",
+//         component: AddExpense
+//     },
+//     {
+//         path: "/analytics",
+//         component: Analytics
+//     }
+// ];
+
+// export const AppRoutes = () => {
+//     const store = configureStore({});
+    
+//     return (
+//         <RouterDataProvider
+//             routes={routes}
+//             initialState={{}}
+//             fetcherArgs={{ store }}
+//         >
+//             <div id="router-content" />
+//         </RouterDataProvider>
+//     );
+// };
+
+// export default routes;
 
 
 
