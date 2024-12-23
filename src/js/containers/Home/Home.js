@@ -159,12 +159,6 @@ const Home = () => {
         return "Good evening";
     };
 
-    Home.setMetaData = () => {
-        return [
-            <title>Dashboard | Expense Tracker</title>
-        ]
-    }
-
     return (
         <div className={`container ${state.showPrintView ? 'printView' : ''}`}>
             <header className="header">
@@ -380,7 +374,14 @@ const fetchExpenses = async () => {
 
 Home.clientFetcher = fetchExpenses;
 
+Home.setMetaData = () => {
+    return [
+        <title>Dashboard | Expense Tracker</title>
+    ];
+};
+
 export default Home;
+
 
 
 
